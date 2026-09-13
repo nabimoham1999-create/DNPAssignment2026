@@ -33,7 +33,8 @@ public class ManagePostsView
             Console.WriteLine("1. List posts");
             Console.WriteLine("2. Create post");
             Console.WriteLine("3. View single post");
-            Console.WriteLine("4. Delete post");
+            Console.WriteLine("4. Add Comment");
+            Console.WriteLine("5. Delete post");
             Console.WriteLine("0. Back");
             Console.WriteLine();
 
@@ -72,6 +73,16 @@ public class ManagePostsView
                     break;
 
                 case "4":
+                    AddCommentView commentView = new AddCommentView(
+                        commentRepository,
+                        postRepository,
+                        userRepository
+                    );
+
+                    await commentView.Show();
+                    break;
+
+                case "5":
                     await DeletePost();
                     break;
 
